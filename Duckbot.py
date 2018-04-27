@@ -112,4 +112,4 @@ async def helpme(ctx):
     embed.set_footer(text="Stay turnt everyone :)")
     await bot.say(embed=embed)
 
-bot.run("NDM4OTM0ODA4MjExNDg4NzY4.DcTBYg.SSRLr4t1etgpMYn0czlrFcXYwZU")
+bot.run("process.env.BOY_TOKEN")
