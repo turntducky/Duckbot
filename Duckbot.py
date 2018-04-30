@@ -4,6 +4,11 @@ import discord
 from discord.ext import commands
 from discord.ext.commands import bot
 from datetime import datetime
+from plugin import Plugin
+from decorators import command
+from xml.etree import ElementTree
+from bs4 import BeautifulSoup
+from collections import OrderedDict
 import random
 import asyncio
 import chalk
@@ -11,11 +16,6 @@ import discord
 import os
 import html
 import aiohttp
-from plugin import Plugin
-from decorators import command
-from xml.etree import ElementTree
-from bs4 import BeautifulSoup
-from collections import OrderedDict
 
 bot = commands.Bot(command_prefix="Duckbot ", description="This bot is always turnt")
 
@@ -109,7 +109,7 @@ async def helpme(ctx):
     embed.set_footer(text="Stay turnt everyone :)")
     await bot.say(embed=embed)
     print("Someone needed help with my commands")
-
+   
 #Search function
 
 MAL_USERNAME = os.getenv('MAL_USERNAME')
@@ -428,7 +428,7 @@ class Search(Plugin):
 
         await self.mee6.send_message(message.channel,
                                      msg)
-        
+    
     #Bot talking back to user
     
 @bot.command(pass_context=True)
@@ -471,5 +471,6 @@ async def thonk(ctx);
 async def Do you love me(ctx);
 	await bot.say("Sure :)")
 	
+#Log in your bot
     
 bot.run("BOT_TOKEN_HERE")
