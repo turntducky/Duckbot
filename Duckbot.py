@@ -1,5 +1,5 @@
 #Duckbot by turnt ducky
-
+#Needs to have things downloaded which I havent listed yet
 import discord
 from discord.ext import commands
 from discord.ext.commands import bot
@@ -432,44 +432,16 @@ class Search(Plugin):
     #Bot talking back to user
     
 @bot.command(pass_context=True)
-async def Boi(ctx);
+async def Boi(ctx):
 	await bot.say("Wot BOi")
 
 @bot.command(pass_context=True)
-async def I love you(ctx);
-	await bot.say("Aw I love you too")
-
-@bot.command(pass_context=True)
-async def Yeet(ctx);
+async def Yeet(ctx):
 	await bot.say("YEET")  
-    
-@bot.command(pass_context=True)
-async def how are you(ctx);
-	await bot.say("I'm good how are you?")
   
 @bot.command(pass_context=True)
-async def good(ctx);
-	await bot.say("That's good :)")
-
-@bot.command(pass_context=True)
-async def rough(ctx);
-	await bot.say("I'm sorry :(")
-  
-@bot.command(pass_context=True)
-async def Are you gay(ctx);
-	await bot.say("NOOOOOO")
-  
-@bot.command(pass_context=True)
-async def whats your favorite car(ctx);
-	await bot.say("hmmmmm supra or r34")
-  
-@bot.command(pass_context=True)
-async def thonk(ctx);
+async def thonk(ctx):
 	await bot.say(":thonk:")
-  
-@bot.command(pass_context=True)
-async def Do you love me(ctx);
-	await bot.say("Sure :)")
 	
 #Log in your bot
     
