@@ -154,7 +154,7 @@ class Search(Plugin):
         else:
             response = NOT_FOUND
 
-        await self.mee6.send_message(message.channel, response)
+        await self.Duckbot.send_message(message.channel, response)
 
 
     @command(db_name='urban',
@@ -175,7 +175,7 @@ class Search(Plugin):
                        "<{e[permalink]}>".format(e=entry)
         else:
             response = NOT_FOUND
-        await self.mee6.send_message(message.channel, response)
+        await self.Duckbot.send_message(message.channel, response)
 
     """
     @command(db_name='gimg',
@@ -234,7 +234,7 @@ class Search(Plugin):
             for k, v in p.items():
                 response += "**" + k + ":** " + v + "\n"
 
-        await self.mee6.send_message(message.channel, response)
+        await self.Duckbot.send_message(message.channel, response)
 
     @command(db_name='twitch',
              pattern='^Duckbot twitch (.*)',
@@ -260,7 +260,7 @@ class Search(Plugin):
         else:
             response = NOT_FOUND
 
-        await self.mee6.send_message(message.channel, response)
+        await self.Duckbot.send_message(message.channel, response)
 
     @command(db_name='imgur',
              pattern='^Duckbot imgur (.*)',
@@ -282,7 +282,7 @@ class Search(Plugin):
         else:
             response = NOT_FOUND
 
-        await self.mee6.send_message(message.channel, response)
+        await self.Duckbot.send_message(message.channel, response)
 
     """
     @command(db_name='wiki',
@@ -307,13 +307,13 @@ class Search(Plugin):
                 data = await response.text()
 
         if data == "":
-            await self.mee6.send_message(message.channel,
+            await self.Duckbot.send_message(message.channel,
                                          "I didn't find anything :cry:...")
             return
 
         root = ElementTree.fromstring(data)
         if len(root) == 0:
-            await self.mee6.send_message(message.channel,
+            await self.Duckbot.send_message(message.channel,
                                          "Sorry, I didn't find anything :cry:"
                                          "...")
         elif len(root) == 1:
@@ -323,10 +323,10 @@ class Search(Plugin):
             msg += "\n".join(['{} - {}'.format(n+1, entry[1].text)
                               for n, entry in enumerate(root) if n < 10])
 
-            await self.mee6.send_message(message.channel, msg)
+            await self.Duckbot.send_message(message.channel, msg)
 
             def check(m): return m.content in map(str, range(1, len(root)+1))
-            resp = await self.mee6.wait_for_message(author=message.author,
+            resp = await self.Duckbot.wait_for_message(author=message.author,
                                                     check=check,
                                                     timeout=20)
             if resp is None:
@@ -358,7 +358,7 @@ class Search(Plugin):
                                             )))
         msg += 'https://myanimelist.net/manga/{}'.format(entry.find('id').text)
 
-        await self.mee6.send_message(message.channel,
+        await self.Duckbot.send_message(message.channel,
                                      msg)
 
     @command(db_name='anime',
@@ -375,13 +375,13 @@ class Search(Plugin):
                 data = await response.text()
 
         if data == "":
-            await self.mee6.send_message(message.channel,
+            await self.Duckbot.send_message(message.channel,
                                          "I didn't find anything :cry:...")
             return
 
         root = ElementTree.fromstring(data)
         if len(root) == 0:
-            await self.mee6.send_message(message.channel,
+            await self.Duckbot.send_message(message.channel,
                                          "Sorry, I didn't find anything :cry:"
                                          "...")
         elif len(root) == 1:
@@ -391,10 +391,10 @@ class Search(Plugin):
             msg += "\n".join(['{} - {}'.format(n+1, entry[1].text)
                               for n, entry in enumerate(root) if n < 10])
 
-            await self.mee6.send_message(message.channel, msg)
+            await self.Duckbot.send_message(message.channel, msg)
 
             def check(m): return m.content in map(str, range(1, len(root)+1))
-            resp = await self.mee6.wait_for_message(author=message.author,
+            resp = await self.Duckbot.wait_for_message(author=message.author,
                                                     check=check,
                                                     timeout=20)
             if resp is None:
@@ -426,7 +426,7 @@ class Search(Plugin):
                                             )))
         msg += 'https://myanimelist.net/anime/{}'.format(entry.find('id').text)
 
-        await self.mee6.send_message(message.channel,
+        await self.Duckbot.send_message(message.channel,
                                      msg)
     
     #Bot talking back to user
